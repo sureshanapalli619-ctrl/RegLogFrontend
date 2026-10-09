@@ -81,15 +81,15 @@ function Login({ onNavigate, onLoginSuccess }) {
 
       <form onSubmit={handleSubmit} className="auth-form">
         <div className="form-group">
-          <label htmlFor="login-email">Email Address</label>
+          <label htmlFor="login-email">Email or Username</label>
           <input
             id="login-email"
             name="email"
-            type="email"
-            placeholder="e.g. suresh@example.com"
+            type="text"
+            placeholder="e.g. suresh or suresh@example.com"
             value={formData.email}
             onChange={handleChange}
-            autoComplete="email"
+            autoComplete="username"
             required
           />
         </div>

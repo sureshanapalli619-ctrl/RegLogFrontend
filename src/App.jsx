@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Home from './pages/Home';
+import SearchUsers from './pages/SearchUsers';
 import './App.css';
 
 function App() {
@@ -34,6 +35,12 @@ function App() {
             Home
           </button>
           <button
+            className={`nav-btn ${currentPath === '/search' ? 'active' : ''}`}
+            onClick={() => navigate('/search')}
+          >
+            🔍 Search Users
+          </button>
+          <button
             className={`nav-btn ${currentPath === '/login' ? 'active' : ''}`}
             onClick={() => navigate('/login')}
           >
@@ -51,7 +58,8 @@ function App() {
       <main className="app-content">
         {currentPath === '/signup' && <Signup onNavigate={navigate} />}
         {currentPath === '/login' && <Login onNavigate={navigate} />}
-        {currentPath !== '/signup' && currentPath !== '/login' && (
+        {currentPath === '/search' && <SearchUsers onNavigate={navigate} />}
+        {currentPath !== '/signup' && currentPath !== '/login' && currentPath !== '/search' && (
           <Home onNavigate={navigate} />
         )}
       </main>

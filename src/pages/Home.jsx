@@ -39,14 +39,28 @@ function Home({ onNavigate }) {
 
         <div className="home-actions">
           {user ? (
-            <button onClick={handleLogout} className="btn-secondary">
-              🚪 Log Out
-            </button>
+            <>
+              <button
+                onClick={() => onNavigate ? onNavigate('/search') : window.location.href = '/search'}
+                className="btn-primary"
+              >
+                🔍 Search Users
+              </button>
+              <button onClick={handleLogout} className="btn-secondary">
+                🚪 Log Out
+              </button>
+            </>
           ) : (
             <>
               <button
-                onClick={() => onNavigate ? onNavigate('/login') : window.location.href = '/login'}
+                onClick={() => onNavigate ? onNavigate('/search') : window.location.href = '/search'}
                 className="btn-primary"
+              >
+                🔍 Search Users
+              </button>
+              <button
+                onClick={() => onNavigate ? onNavigate('/login') : window.location.href = '/login'}
+                className="btn-secondary"
               >
                 Sign In
               </button>
